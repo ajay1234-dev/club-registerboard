@@ -106,7 +106,7 @@ export default async function LandingPage() {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xs font-bold text-gray-600 uppercase tracking-widest mb-8">Participating Clubs</p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-              {clubs.map((club, idx) => (
+              {clubs.map((club: PageClub, idx: number) => (
                 <div key={idx} className="flex flex-col items-center gap-2 group">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-gray-800 bg-white flex items-center justify-center group-hover:border-indigo-500 group-hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300 relative overflow-hidden">
                     {club.logoUrl ? (
