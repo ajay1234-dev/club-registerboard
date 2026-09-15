@@ -31,7 +31,14 @@ async function getEventStatus() {
   }
 }
 
-async function getClubs() {
+interface PageClub {
+  name: string;
+  logoUrl: string;
+  active: boolean;
+  displayOrder: number;
+}
+
+async function getClubs(): Promise<PageClub[]> {
   try {
     const response = await fetch(
       `https://firestore.googleapis.com/v1/projects/${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}/databases/(default)/documents/clubs`,
@@ -44,7 +51,7 @@ async function getClubs() {
       logoUrl: doc.fields.logoUrl?.stringValue ?? "",
       active: doc.fields.active?.booleanValue ?? false,
       displayOrder: parseInt(doc.fields.displayOrder?.integerValue ?? "0"),
-    })).filter((c: any) => c.active).sort((a: any, b: any) => a.displayOrder - b.displayOrder);
+    })).filter((c: PageClub) => c.active).sort((a: PageClub, b: PageClub) => a.displayOrder - b.displayOrder);
   } catch {
     return [];
   }
