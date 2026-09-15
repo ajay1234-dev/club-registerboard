@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// ── Firebase Storage Rules ──────────────────────────────────────────────────
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Anyone can view club logos
+    match /clubs/{imageId} {
+      allow read: if true;
+      // Only admins (via server-side SDK) can upload logos.
+      allow write: if false; 
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
