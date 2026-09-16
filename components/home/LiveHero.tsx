@@ -53,15 +53,15 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
       </div>
 
       {/* Headline */}
-      <div className="mb-2 text-sm sm:text-base font-semibold text-gray-400 uppercase tracking-widest text-center flex flex-col items-center">
+      <div className="mb-2 text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-widest text-center flex flex-col items-center">
         <span>Meenakshi Sundararajan Engineering College</span>
         <span className="text-xs text-gray-500 mt-1">An Autonomous Institution</span>
       </div>
       <motion.h1 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="font-outfit text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-50 leading-tight tracking-tight mb-4 mt-4"
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.4 }}
+        className="font-outfit text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 dark:text-gray-50 leading-tight tracking-tight mb-4 mt-4"
       >
         {status.eventName.startsWith("First Year") ? (
           <>
@@ -80,16 +80,16 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
         )}
       </motion.h1>
 
-      <p className="text-lg sm:text-xl text-gray-400 max-w-lg mb-4">
+      <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-lg mb-4">
         Pick your tribe. Find your people. Join a club that matches your passion.
       </p>
 
       {/* Registration count */}
       {status.totalRegistrationCount > 0 && (
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-10">
+        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-500 mb-10">
           <Users className="w-4 h-4" />
           <span>
-            <span className="text-gray-300 font-semibold">
+            <span className="text-gray-900 dark:text-gray-300 font-bold">
               {status.totalRegistrationCount.toLocaleString("en-IN")}
             </span>{" "}
             of {status.totalExpectedStudents.toLocaleString("en-IN")} students registered
@@ -109,14 +109,14 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
             <ArrowRight className="w-5 h-5" />
           </Link>
         ) : (
-          <div className="px-8 py-4 rounded-2xl bg-gray-900 border border-gray-800 text-gray-500 text-lg">
+          <div className="px-8 py-4 rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-500 text-lg">
             Registration has closed
           </div>
         )}
       </div>
 
       {/* Sub-hint */}
-      <p className="mt-6 text-sm font-semibold text-gray-300">
+      <p className="mt-6 text-sm font-semibold text-gray-700 dark:text-gray-300">
         One club per student · No changes after submission
       </p>
     </section>
