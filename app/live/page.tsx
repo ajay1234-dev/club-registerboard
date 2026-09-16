@@ -81,7 +81,7 @@ export default function LiveLeaderboardPage() {
                 / {totalExpected.toLocaleString("en-IN")}
               </span>
             </div>
-            <div className={`mt-2 h-1.5 w-full rounded-full overflow-hidden flex justify-end ${isLight ? "bg-gray-200" : "bg-gray-800"}`}>
+            <div className={`mt-2 h-1.5 w-full rounded-full overflow-hidden ${isLight ? "bg-gray-200" : "bg-gray-800"}`}>
               <div 
                 className="h-full bg-indigo-500 rounded-full transition-all duration-1000 ease-out" 
                 style={{ width: filledStr }}

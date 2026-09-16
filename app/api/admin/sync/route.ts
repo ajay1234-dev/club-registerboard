@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     // 2. Update settings
     await db.collection("settings").doc("event").set({
       totalRegistrationCount: totalCount,
-      totalExpectedStudents: 1000, // Also update capacity to 1000
+      totalExpectedStudents: 900, // Also update capacity to 900
     }, { merge: true });
 
     // 3. Update all clubs
