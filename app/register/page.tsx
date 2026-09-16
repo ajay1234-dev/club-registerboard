@@ -10,6 +10,7 @@ import StepIndicator from "@/components/registration/StepIndicator";
 import ClubCard from "@/components/registration/ClubCard";
 import ConfirmationModal from "@/components/registration/ConfirmationModal";
 import SuccessScreen from "@/components/registration/SuccessScreen";
+import ErrorScreen from "@/components/registration/ErrorScreen";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
@@ -24,6 +25,7 @@ export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fatalError, setFatalError] = useState<string | null>(null);
 
   // Form data state
   const [formData, setFormData] = useState<RegistrationFormData>({
@@ -138,8 +140,8 @@ export default function RegisterPage() {
       setIsSuccess(true);
       // We don't need to redirect, we render the success screen component
     } catch (err: any) {
-      setError(err.message || "An unexpected error occurred. Please try again.");
-      setCurrentStep(2); // Close the modal so the user can see the error message
+      setFatalError(err.message || "An unexpected error occurred. Please try again.");
+      setCurrentStep(1); // Reset modal and steps behind the scenes
     } finally {
       setIsSubmitting(false);
     }
@@ -165,6 +167,20 @@ export default function RegisterPage() {
         clubName={selectedClub?.name || "Your Club"}
         clubLogoUrl={selectedClub?.logoUrl || ""}
         studentName={formData.name}
+      />
+    );
+  }
+
+  // If a fatal server error happened (e.g. duplicate device), show the Error Screen
+  if (fatalError && fatalError !== "Registration is currently closed.") {
+    return (
+      <ErrorScreen
+        message={fatalError}
+        onRetry={() => {
+          setFatalError(null);
+          setCurrentStep(1);
+          setFormData((prev) => ({ ...prev, name: "", email: "", phone: "", department: "", section: "", clubId: "" })); // Wipe form so they have to start over if they are cheating
+        }}
       />
     );
   }

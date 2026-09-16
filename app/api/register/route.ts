@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
         REGISTRATION_CLOSED: 403,
         DEVICE_ALREADY_REGISTERED: 409,
         EMAIL_ALREADY_REGISTERED: 409,
+        PHONE_ALREADY_REGISTERED: 409,
         CLUB_NOT_FOUND: 404,
         CLUB_INACTIVE: 404,
         VALIDATION_ERROR: 400,

@@ -70,18 +70,20 @@ export async function executeRegistrationTransaction(
   const emailRef = db
     .collection("emailRegistrations")
     .doc(encodeURIComponent(normalizedEmailAddr));
+  const phoneRef = db.collection("phoneRegistrations").doc(validated.phone);
   const registrationRef = db.collection("registrations").doc();
 
   // ── Run atomic transaction ────────────────────────────────────────────────
   try {
     const result = await db.runTransaction(async (tx) => {
       // Step 2: Read all docs inside the transaction (reads before writes)
-      const [settingsSnap, clubSnap, deviceSnap, emailSnap] = await Promise.all(
+      const [settingsSnap, clubSnap, deviceSnap, emailSnap, phoneSnap] = await Promise.all(
         [
           tx.get(settingsRef),
           tx.get(clubRef),
           tx.get(deviceRef),
           tx.get(emailRef),
+          tx.get(phoneRef),
         ]
       );
 
@@ -122,7 +124,7 @@ export async function executeRegistrationTransaction(
       if (deviceSnap.exists) {
         throw Object.assign(
           new Error(
-            "Whoa there, eager beaver! 🦫 This device has already claimed a spot. Remember, it's strictly one club per student—let's give others a chance to join!"
+            "Whoa there, eager beaver! 🦫 This device has already claimed a spot. Remember, it's strictly one club per student. Let's give others a chance to join!"
           ),
           { code: "DEVICE_ALREADY_REGISTERED" as RegistrationErrorCode }
         );
@@ -135,6 +137,16 @@ export async function executeRegistrationTransaction(
             "Hold your horses! 🐴 This email is already registered. You can only pledge allegiance to one club at a time!"
           ),
           { code: "EMAIL_ALREADY_REGISTERED" as RegistrationErrorCode }
+        );
+      }
+
+      // Step 6.5: Phone duplicate check
+      if (phoneSnap.exists) {
+        throw Object.assign(
+          new Error(
+            "Nice try, mastermind! 🧠 This phone number is already registered to another club. strictly one club per student!"
+          ),
+          { code: "PHONE_ALREADY_REGISTERED" as RegistrationErrorCode }
         );
       }
 
@@ -182,6 +194,13 @@ export async function executeRegistrationTransaction(
         createdAt: now,
       });
 
+      // Step 10.5: Create phone registration record
+      tx.create(phoneRef, {
+        registrationId: registrationRef.id,
+        clubId: validated.clubId,
+        createdAt: now,
+      });
+
       // Step 11: Atomically increment club count
       tx.update(clubRef, {
         registrationCount: FieldValue.increment(1),
@@ -208,6 +227,7 @@ export async function executeRegistrationTransaction(
       "REGISTRATION_CLOSED",
       "DEVICE_ALREADY_REGISTERED",
       "EMAIL_ALREADY_REGISTERED",
+      "PHONE_ALREADY_REGISTERED",
       "CLUB_NOT_FOUND",
       "CLUB_INACTIVE",
       "VALIDATION_ERROR",
