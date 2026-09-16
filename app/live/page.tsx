@@ -91,11 +91,11 @@ export default function LiveLeaderboardPage() {
         </header>
 
         {/* Table Layout */}
-        <div className="flex-1 flex flex-col min-h-0 w-full max-w-5xl mx-auto">
+        <div className="flex-1 flex flex-col min-h-0 w-full max-w-[90%] 2xl:max-w-screen-2xl mx-auto mt-4">
           {/* Table Header */}
-          <div className={`flex items-center gap-4 px-4 py-3 border-b-2 text-xs font-bold uppercase tracking-widest ${isLight ? "border-gray-300 text-gray-500" : "border-gray-700 text-gray-400"}`}>
-            <div className="w-8 text-center">#</div>
-            <div className="w-10"></div> {/* Logo spacer */}
+          <div className={`flex items-center gap-6 px-6 py-4 border-b-2 text-sm md:text-base font-bold uppercase tracking-widest ${isLight ? "border-gray-300 text-gray-500" : "border-gray-700 text-gray-400"}`}>
+            <div className="w-12 text-center">#</div>
+            <div className="w-16"></div> {/* Logo spacer */}
             <div className="flex-1">Club Name</div>
             <div className="text-right">Reg Members</div>
           </div>
