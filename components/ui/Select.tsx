@@ -34,7 +34,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             id={inputId}
             className={cn(
               "input-field px-4 py-3 text-base appearance-none pr-10 cursor-pointer",
-              !props.value && "text-[#4b5563]",
+              !props.value && "text-gray-600 dark:text-[#4b5563]",
               error && "border-red-500/70 focus:border-red-500",
               className
             )}
@@ -56,7 +56,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             ))}
           </select>
           <ChevronDown
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6b7280] pointer-events-none"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-[#6b7280] pointer-events-none"
             aria-hidden
           />
         </div>
@@ -66,7 +66,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {hint && !error && (
-          <p className="text-xs text-[#6b7280]">{hint}</p>
+          <p className="text-xs text-gray-500 dark:text-[#6b7280]">{hint}</p>
         )}
       </div>
     );

@@ -26,7 +26,7 @@ export default function StepIndicator({ currentStep, steps }: StepIndicatorProps
                     ? "bg-violet-600 border-violet-600 text-white"
                     : isActive
                     ? "bg-transparent border-violet-500 text-violet-400 shadow-[0_0_12px_rgba(124,58,237,0.5)]"
-                    : "bg-transparent border-[#2a2a55] text-[#4b5563]"
+                    : "bg-transparent border-gray-200 dark:border-[#2a2a55] text-gray-600 dark:text-[#4b5563]"
                 )}
                 aria-current={isActive ? "step" : undefined}
               >
@@ -41,7 +41,7 @@ export default function StepIndicator({ currentStep, steps }: StepIndicatorProps
               <span
                 className={cn(
                   "text-xs font-medium whitespace-nowrap",
-                  isActive ? "text-violet-400" : isComplete ? "text-gray-600 dark:text-[#a1a1c7]" : "text-[#4b5563]"
+                  isActive ? "text-violet-400" : isComplete ? "text-gray-600 dark:text-[#a1a1c7]" : "text-gray-600 dark:text-[#4b5563]"
                 )}
               >
                 {step}
@@ -51,7 +51,7 @@ export default function StepIndicator({ currentStep, steps }: StepIndicatorProps
             {/* Connector line */}
             {index < steps.length - 1 && (
               <div className="flex-1 mx-3 mb-5">
-                <div className="h-0.5 w-full bg-[#1e1e3f] rounded-full overflow-hidden">
+                <div className="h-0.5 w-full bg-gray-200 dark:bg-[#1e1e3f] rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-violet-600 to-cyan-400 rounded-full transition-all duration-500"
                     style={{ width: isComplete ? "100%" : "0%" }}

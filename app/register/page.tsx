@@ -188,7 +188,7 @@ export default function RegisterPage() {
   return (
     <main className="min-h-screen flex flex-col pt-8 pb-20 px-4 sm:px-6">
       {/* Background */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-[#07070f] to-[#07070f]" />
+      <div className="fixed inset-0 pointer-events-none z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-100 via-gray-50 to-gray-50 dark:from-violet-900/20 dark:via-[#07070f] dark:to-[#07070f]" />
 
       <div className="w-full max-w-2xl mx-auto flex-1 flex flex-col">
         {/* Header */}
@@ -244,6 +244,7 @@ export default function RegisterPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Select
                     label="Department"
+                    placeholder="Select Department"
                     value={formData.department}
                     onChange={(e) => setFormData({ ...formData, department: e.target.value })}
                     options={departments.map((d) => ({ value: d.name, label: d.name }))}
@@ -251,6 +252,7 @@ export default function RegisterPage() {
                   />
                   <Select
                     label="Section"
+                    placeholder="Select Section"
                     value={formData.section}
                     onChange={(e) => setFormData({ ...formData, section: e.target.value })}
                     options={sections.map((s) => ({ value: s.name, label: s.name }))}

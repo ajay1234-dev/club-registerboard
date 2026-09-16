@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "input-field px-4 py-3 text-base placeholder:text-[#4b5563]",
+            "input-field px-4 py-3 text-base placeholder:text-gray-600 dark:text-[#4b5563]",
             error && "border-red-500/70 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(239,68,68,0.2)]",
             className
           )}
@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
         {hint && !error && (
-          <p className="text-xs text-[#6b7280]">{hint}</p>
+          <p className="text-xs text-gray-500 dark:text-[#6b7280]">{hint}</p>
         )}
       </div>
     );

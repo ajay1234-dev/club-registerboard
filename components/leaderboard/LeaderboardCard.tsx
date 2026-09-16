@@ -9,12 +9,10 @@ import type { LeaderboardEntry } from "@/types";
 interface LeaderboardCardProps {
   entry: LeaderboardEntry;
   totalExpected: number;
-  isLight?: boolean;
 }
 
 export default function LeaderboardCard({
   entry,
-  isLight = false,
 }: LeaderboardCardProps) {
   const isTopThree = entry.rank <= 3;
 
@@ -27,15 +25,13 @@ export default function LeaderboardCard({
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={cn(
         "flex items-center gap-6 px-6 py-5 border-b transition-colors",
-        isLight 
-          ? "border-gray-200 hover:bg-gray-100" 
-          : "border-gray-800 hover:bg-gray-900/50"
+        "border-gray-200 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-900/50"
       )}
     >
       {/* Rank */}
       <div className={cn(
         "w-16 flex-shrink-0 text-center font-bold text-2xl",
-        isTopThree && !isLight ? "text-indigo-400" : (isLight ? "text-gray-500" : "text-gray-500")
+        isTopThree ? "text-indigo-500 dark:text-indigo-400" : "text-gray-500 dark:text-gray-500"
       )}>
         {entry.rank}
       </div>
@@ -43,7 +39,7 @@ export default function LeaderboardCard({
       {/* Logo */}
       <div className={cn(
         "w-16 h-16 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center border",
-        isLight ? "bg-white border-gray-300" : "bg-white border-gray-700"
+        "bg-white border-gray-300 dark:bg-white dark:border-gray-700"
       )}>
         {entry.logoUrl ? (
           <Image
@@ -63,7 +59,7 @@ export default function LeaderboardCard({
       {/* Club Name */}
       <div className={cn(
         "flex-1 font-semibold text-2xl truncate",
-        isLight ? "text-gray-900" : "text-gray-100"
+        "text-gray-900 dark:text-gray-100"
       )}>
         {entry.name}
       </div>
@@ -71,7 +67,7 @@ export default function LeaderboardCard({
       {/* Count */}
       <div className={cn(
         "flex-shrink-0 text-right w-32 tabular-nums font-bold text-4xl",
-        isLight ? "text-gray-900" : "text-gray-100"
+        "text-gray-900 dark:text-gray-100"
       )}>
         <CountUp value={entry.registrationCount} />
       </div>

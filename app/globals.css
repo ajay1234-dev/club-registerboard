@@ -13,21 +13,18 @@ html {
 }
 
 body {
-  background-color: #030712;
-  color: #f9fafb;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+  @apply bg-gray-50 dark:bg-[#030712] text-gray-900 dark:text-[#f9fafb] min-h-screen antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Scrollbar styling (dark theme) ────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #111827; }
-::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
+::-webkit-scrollbar-track { @apply bg-gray-100 dark:bg-[#111827]; }
+::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-[#374151] rounded-[3px]; }
+::-webkit-scrollbar-thumb:hover { @apply bg-indigo-500; }
 
 /* ── Selection ───────────────────────────────────────────────────────────── */
-::selection { background: rgba(79, 70, 229, 0.4); color: #f9fafb; }
+::selection { @apply bg-indigo-500/40 text-gray-900 dark:text-[#f9fafb]; }
 
 /* ── Rainbow text ────────────────────────────────────────────────────────── */
 @keyframes rainbow-move {
@@ -58,10 +55,7 @@ body {
 
 /* ── Clean Card ──────────────────────────────────────────────────────────── */
 .glass-card {
-  background: #111827;
-  border: 1px solid #1f2937;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  @apply bg-white dark:bg-[#111827] border border-gray-200 dark:border-[#1f2937] rounded-2xl shadow-sm;
 }
 
 .glass-card-light {
@@ -136,39 +130,27 @@ body {
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 .btn-secondary {
-  background: #1f2937;
-  border: 1px solid #374151;
-  color: #d1d5db;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
+  @apply bg-gray-100 dark:bg-[#1f2937] border border-gray-200 dark:border-[#374151] text-gray-700 dark:text-[#d1d5db] font-medium rounded-lg transition-all duration-200;
 }
 .btn-secondary:hover:not(:disabled) {
-  border-color: #4b5563;
-  color: #f9fafb;
-  background: #374151;
+  @apply border-gray-300 dark:border-[#4b5563] text-gray-900 dark:text-[#f9fafb] bg-gray-200 dark:bg-[#374151];
 }
 
 /* ── Input base ──────────────────────────────────────────────────────────── */
 .input-field {
-  background: #111827;
-  border: 1px solid #374151;
-  color: #f9fafb;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  width: 100%;
+  @apply bg-white dark:bg-[#111827] border border-gray-300 dark:border-[#374151] text-gray-900 dark:text-[#f9fafb] rounded-lg transition-all duration-200 w-full;
 }
 .input-field:focus {
   outline: none;
   border-color: #4f46e5;
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
 }
-.input-field::placeholder { color: #6b7280; }
+.input-field::placeholder { @apply text-gray-400 dark:text-[#6b7280]; }
 
 /* ── Leaderboard card ────────────────────────────────────────────────────── */
-.rank-1 { background: #1f2937; border: 1px solid #eab308 !important; }
-.rank-2 { background: #1f2937; border: 1px solid #94a3b8 !important; }
-.rank-3 { background: #1f2937; border: 1px solid #d97706 !important; }
+.rank-1 { @apply bg-white dark:bg-[#1f2937] border-yellow-400 dark:border-yellow-500 shadow-sm !important; }
+.rank-2 { @apply bg-white dark:bg-[#1f2937] border-slate-300 dark:border-slate-400 shadow-sm !important; }
+.rank-3 { @apply bg-white dark:bg-[#1f2937] border-amber-500 dark:border-amber-600 shadow-sm !important; }
 
 /* ── Focus visible (a11y) ────────────────────────────────────────────────── */
 :focus-visible {

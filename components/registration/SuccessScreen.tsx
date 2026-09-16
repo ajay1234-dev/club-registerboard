@@ -79,7 +79,7 @@ export default function SuccessScreen({
               )}
             </div>
             <div className="text-left">
-              <p className="text-xs text-[#6b7280] uppercase tracking-wider mb-1">
+              <p className="text-xs text-gray-500 dark:text-[#6b7280] uppercase tracking-wider mb-1">
                 Your Club
               </p>
               <p className="text-xl font-bold gradient-text">{clubName}</p>
@@ -94,11 +94,11 @@ export default function SuccessScreen({
           transition={{ delay: 0.7 }}
           className="space-y-2"
         >
-          <div className="flex items-center justify-center gap-2 text-[#6b7280] text-sm">
+          <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-[#6b7280] text-sm">
             <Sparkles className="w-4 h-4 text-violet-400" />
             <span>Look out for your club&apos;s announcements!</span>
           </div>
-          <p className="text-xs text-[#4b5563]">
+          <p className="text-xs text-gray-600 dark:text-[#4b5563]">
             Keep an eye on the live leaderboard on the projector screen
           </p>
         </motion.div>

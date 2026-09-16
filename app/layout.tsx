@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
-      <body className="bg-white dark:bg-white dark:bg-[#07070f] text-gray-900 dark:text-gray-900 dark:text-[#f0f0ff] font-sans antialiased min-h-screen transition-colors duration-300">
+      <body className="font-sans transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
           <ThemeToggle />

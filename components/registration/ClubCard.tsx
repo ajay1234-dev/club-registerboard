@@ -75,7 +75,7 @@ export default function ClubCard({ club, isSelected, onSelect }: ClubCardProps) 
 
         {/* Description */}
         {club.description && (
-          <p className="text-xs text-[#6b7280] leading-relaxed line-clamp-2">
+          <p className="text-xs text-gray-500 dark:text-[#6b7280] leading-relaxed line-clamp-2">
             {club.description}
           </p>
         )}

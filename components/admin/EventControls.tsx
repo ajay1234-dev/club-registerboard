@@ -72,7 +72,7 @@ export default function EventControls({ registrationOpen, onUpdate }: EventContr
       <div className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-gray-200 dark:border-[#1e1e3f]">
         <div>
           <p className="font-semibold text-gray-900 dark:text-[#f0f0ff]">Registration Status</p>
-          <p className="text-sm text-[#6b7280]">
+          <p className="text-sm text-gray-500 dark:text-[#6b7280]">
             Currently <span className={registrationOpen ? "text-green-400 font-bold" : "text-red-400 font-bold"}>{registrationOpen ? "OPEN" : "CLOSED"}</span>
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function EventControls({ registrationOpen, onUpdate }: EventContr
             <p className="font-semibold text-red-400 flex items-center gap-2">
               <AlertTriangle className="w-4 h-4" /> Danger Zone
             </p>
-            <p className="text-sm text-[#6b7280]">Delete all registrations and reset counts (Dev Only)</p>
+            <p className="text-sm text-gray-500 dark:text-[#6b7280]">Delete all registrations and reset counts (Dev Only)</p>
           </div>
           <Button variant="danger" onClick={() => setIsResetOpen(true)}>
             Reset Event Data

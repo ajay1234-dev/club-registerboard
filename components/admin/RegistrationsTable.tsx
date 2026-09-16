@@ -80,7 +80,7 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
       <div className="p-4 border-b border-gray-200 dark:border-[#1e1e3f] bg-black/20 flex flex-wrap gap-3">
         <div className="flex-1 min-w-[200px]">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6b7280]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-[#6b7280]" />
             <Input
               placeholder="Search name, email..."
               value={search}
@@ -131,13 +131,13 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
           <tbody className="divide-y divide-[#1e1e3f]/50">
             {isLoading ? (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-[#6b7280]">
+                <td colSpan={5} className="px-6 py-12 text-center text-gray-500 dark:text-[#6b7280]">
                   Loading...
                 </td>
               </tr>
             ) : registrations.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-[#6b7280]">
+                <td colSpan={5} className="px-6 py-12 text-center text-gray-500 dark:text-[#6b7280]">
                   No registrations found
                 </td>
               </tr>
@@ -152,7 +152,7 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
                       {reg.clubName}
                     </span>
                   </td>
-                  <td className="px-6 py-3 text-[#6b7280]">{formatDate(reg.createdAt)}</td>
+                  <td className="px-6 py-3 text-gray-500 dark:text-[#6b7280]">{formatDate(reg.createdAt)}</td>
                 </tr>
               ))
             )}

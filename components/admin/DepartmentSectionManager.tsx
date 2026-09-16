@@ -103,13 +103,13 @@ export default function DepartmentSectionManager({ departments, sections, onUpda
         <div className="flex gap-4">
           <button
             onClick={() => setActiveTab("departments")}
-            className={`text-sm font-semibold transition-colors ${activeTab === "departments" ? "text-violet-400" : "text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
+            className={`text-sm font-semibold transition-colors ${activeTab === "departments" ? "text-violet-400" : "text-gray-500 dark:text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
           >
             Departments
           </button>
           <button
             onClick={() => setActiveTab("sections")}
-            className={`text-sm font-semibold transition-colors ${activeTab === "sections" ? "text-violet-400" : "text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
+            className={`text-sm font-semibold transition-colors ${activeTab === "sections" ? "text-violet-400" : "text-gray-500 dark:text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
           >
             Sections
           </button>
@@ -122,7 +122,7 @@ export default function DepartmentSectionManager({ departments, sections, onUpda
 
       <div className="flex-1 overflow-auto p-4 space-y-2">
         {currentList.length === 0 ? (
-          <p className="text-center text-[#6b7280] py-8 text-sm">No items found</p>
+          <p className="text-center text-gray-500 dark:text-[#6b7280] py-8 text-sm">No items found</p>
         ) : (
           currentList.map((item) => (
             <div key={item.id} className={`flex items-center justify-between p-3 rounded-lg border ${item.active ? "bg-white/[0.02] border-gray-200 dark:border-[#1e1e3f]" : "bg-black/20 border-red-500/20 opacity-75"}`}>

@@ -178,7 +178,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
                   <span className="text-[10px] uppercase font-bold text-red-400 bg-red-400/10 px-2 py-0.5 rounded">Inactive</span>
                 )}
               </div>
-              <p className="text-sm text-[#6b7280] truncate">{club.description || "No description"}</p>
+              <p className="text-sm text-gray-500 dark:text-[#6b7280] truncate">{club.description || "No description"}</p>
             </div>
 
             {/* Actions */}

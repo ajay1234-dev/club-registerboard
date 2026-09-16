@@ -59,7 +59,7 @@ export default function ConfirmationModal({
               )}
             </div>
             <div>
-              <p className="text-xs text-[#6b7280] font-medium uppercase tracking-wider mb-1">
+              <p className="text-xs text-gray-500 dark:text-[#6b7280] font-medium uppercase tracking-wider mb-1">
                 Selected Club
               </p>
               <p className="text-gray-900 dark:text-[#f0f0ff] font-semibold text-lg">
@@ -112,7 +112,7 @@ export default function ConfirmationModal({
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-200 dark:border-[#1e1e3f] last:border-none">
-      <span className="text-sm text-[#6b7280]">{label}</span>
+      <span className="text-sm text-gray-500 dark:text-[#6b7280]">{label}</span>
       <span className="text-sm font-medium text-gray-900 dark:text-[#f0f0ff]">{value}</span>
     </div>
   );

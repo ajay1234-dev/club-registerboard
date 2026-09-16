@@ -61,7 +61,7 @@ export default async function LandingPage() {
   const [status, clubs] = await Promise.all([getEventStatus(), getClubs()]);
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col font-outfit">
       {/* Background hero gradient */}
       <div
         className="fixed inset-0 pointer-events-none"

@@ -55,29 +55,22 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
       {/* Headline */}
       <div className="mb-2 text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-widest text-center flex flex-col items-center">
         <span>Meenakshi Sundararajan Engineering College</span>
-        <span className="text-xs text-gray-500 mt-1">An Autonomous Institution</span>
+        <span className="text-xs text-gray-500 mt-1">An Autonomous Institution (chennai)</span>
       </div>
       <motion.h1 
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", type: "spring", bounce: 0.4 }}
-        className="font-outfit text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 dark:text-gray-50 leading-tight tracking-tight mb-4 mt-4"
+        className="font-outfit text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight tracking-tight mb-4 mt-4"
       >
-        {status.eventName.startsWith("First Year") ? (
-          <>
-            <motion.span 
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="rainbow-text"
-            >
-              First Year
-            </motion.span>{" "}
-            {status.eventName.slice(11)}
-          </>
-        ) : (
-          status.eventName
-        )}
+        <motion.span 
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="rainbow-text inline-block pb-2"
+        >
+          {status.eventName}
+        </motion.span>
       </motion.h1>
 
       <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-lg mb-4">
@@ -116,7 +109,7 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
       </div>
 
       {/* Sub-hint */}
-      <p className="mt-6 text-sm font-semibold text-gray-700 dark:text-gray-300">
+      <p className="mt-6 text-lg sm:text-xl font-bold text-gray-700 dark:text-gray-300">
         One club per student · No changes after submission
       </p>
     </section>
