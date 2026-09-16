@@ -27,7 +27,7 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
           registrationOpen: data.registrationOpen ?? true,
           eventName: data.eventName ?? "First Year Club Enrollment",
           totalRegistrationCount: data.totalRegistrationCount ?? 0,
-          totalExpectedStudents: data.totalExpectedStudents ?? 900,
+          totalExpectedStudents: data.totalExpectedStudents ?? 856,
         });
       }
     });

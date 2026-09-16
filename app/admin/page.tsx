@@ -72,8 +72,8 @@ export default function AdminDashboardPage() {
   }
 
   const activeClubs = clubs.filter(c => c.active).length;
-  const totalRegistrations = settings?.totalRegistrationCount ?? 0;
-  const expected = settings?.totalExpectedStudents ?? 900;
+  const totalRegistrations = clubs.reduce((sum, c) => sum + (c.registrationCount || 0), 0);
+  const expected = settings?.totalExpectedStudents ?? 856;
   const percentFilled = expected > 0 ? Math.round((totalRegistrations / expected) * 100) : 0;
 
   return (

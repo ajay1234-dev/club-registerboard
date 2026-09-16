@@ -11,35 +11,28 @@ export async function POST(req: NextRequest) {
 
     const db = getAdminDb();
 
-    // 1. Get all actual registrations to calculate real counts
-    const registrationsSnap = await db.collection("registrations").get();
+    // 1. Get all clubs
+    const clubsSnap = await db.collection("clubs").get();
     
     let totalCount = 0;
-    const clubCounts: Record<string, number> = {};
+    const batch = db.batch();
 
-    registrationsSnap.docs.forEach((doc) => {
-      totalCount++;
-      const clubId = doc.data().clubId;
-      if (clubId) {
-        clubCounts[clubId] = (clubCounts[clubId] || 0) + 1;
-      }
-    });
+    // 2. Count registrations per club using aggregation query
+    // This avoids fetching all registration documents and exhausting quota
+    for (const doc of clubsSnap.docs) {
+      const clubId = doc.id;
+      const countSnap = await db.collection("registrations").where("clubId", "==", clubId).count().get();
+      const actualCount = countSnap.data().count;
+      totalCount += actualCount;
+      batch.update(doc.ref, { registrationCount: actualCount });
+    }
 
-    // 2. Update settings
+    // 3. Update settings
     await db.collection("settings").doc("event").set({
-      totalRegistrationCount: totalCount,
-      totalExpectedStudents: 900, // Also update capacity to 900
+      totalExpectedStudents: 856, // Keep capacity at 856
     }, { merge: true });
 
-    // 3. Update all clubs
-    const clubsSnap = await db.collection("clubs").get();
-    const batch = db.batch();
-    
-    clubsSnap.docs.forEach((doc) => {
-      const actualCount = clubCounts[doc.id] || 0;
-      batch.update(doc.ref, { registrationCount: actualCount });
-    });
-
+    // 4. Commit all updates
     await batch.commit();
 
     return NextResponse.json({ success: true });

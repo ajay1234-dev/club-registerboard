@@ -33,7 +33,7 @@ export function useLeaderboard(): {
   const [state, setState] = useState<LeaderboardState>({
     entries: [],
     totalRegistrations: 0,
-    totalExpected: 900,
+    totalExpected: 856,
     eventName: "First Year Club Enrollment",
     registrationOpen: true,
     lastUpdated: null,
@@ -68,10 +68,12 @@ export function useLeaderboard(): {
         active: club.active,
       }));
 
+    const totalRegs = clubs.reduce((sum, c) => sum + (c.registrationCount || 0), 0);
+
     setState({
       entries: sorted,
-      totalRegistrations: settings.totalRegistrationCount ?? 0,
-      totalExpected: settings.totalExpectedStudents ?? 900,
+      totalRegistrations: totalRegs,
+      totalExpected: settings.totalExpectedStudents ?? 856,
       eventName: settings.eventName ?? "First Year Club Enrollment",
       registrationOpen: settings.registrationOpen ?? true,
       lastUpdated: new Date(),

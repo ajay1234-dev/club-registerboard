@@ -207,11 +207,8 @@ export async function executeRegistrationTransaction(
         updatedAt: now,
       });
 
-      // Step 12: Atomically increment total count
-      tx.update(settingsRef, {
-        totalRegistrationCount: FieldValue.increment(1),
-        updatedAt: now,
-      });
+      // Note: totalRegistrationCount update was removed to prevent global document contention.
+      // Total registrations should be calculated by summing club registration counts.
 
       return {
         registrationId: registrationRef.id,

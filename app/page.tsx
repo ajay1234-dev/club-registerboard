@@ -17,17 +17,17 @@ async function getEventStatus() {
       `https://firestore.googleapis.com/v1/projects/${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}/databases/(default)/documents/settings/event`,
       { next: { revalidate: 30 } }
     );
-    if (!response.ok) return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 900 };
+    if (!response.ok) return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 856 };
     const data = await response.json();
     const fields = data.fields ?? {};
     return {
       registrationOpen: fields.registrationOpen?.booleanValue ?? true,
       eventName: fields.eventName?.stringValue ?? "First Year Club Enrollment",
       totalRegistrationCount: parseInt(fields.totalRegistrationCount?.integerValue ?? "0"),
-      totalExpectedStudents: parseInt(fields.totalExpectedStudents?.integerValue ?? "900"),
+      totalExpectedStudents: parseInt(fields.totalExpectedStudents?.integerValue ?? "856"),
     };
   } catch {
-    return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 900 };
+    return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 856 };
   }
 }
 
