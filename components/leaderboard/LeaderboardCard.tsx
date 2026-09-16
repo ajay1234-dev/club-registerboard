@@ -34,7 +34,7 @@ export default function LeaderboardCard({
     >
       {/* Rank */}
       <div className={cn(
-        "w-12 flex-shrink-0 text-center font-bold text-2xl",
+        "w-16 flex-shrink-0 text-center font-bold text-2xl",
         isTopThree && !isLight ? "text-indigo-400" : (isLight ? "text-gray-500" : "text-gray-500")
       )}>
         {entry.rank}

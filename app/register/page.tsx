@@ -151,8 +151,8 @@ export default function RegisterPage() {
   if (isLoadingData) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
-        <div className="flex flex-col items-center gap-4 text-[#a1a1c7]">
-          <span className="w-8 h-8 border-4 border-[#1e1e3f] border-t-violet-500 rounded-full animate-spin" />
+        <div className="flex flex-col items-center gap-4 text-gray-600 dark:text-[#a1a1c7]">
+          <span className="w-8 h-8 border-4 border-gray-200 dark:border-[#1e1e3f] border-t-violet-500 rounded-full animate-spin" />
           <p>Loading registration form...</p>
         </div>
       </div>
@@ -193,7 +193,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-2xl mx-auto flex-1 flex flex-col">
         {/* Header */}
         <div className="text-center mb-8 flex flex-col items-center">
-          <h1 className="text-2xl font-bold text-[#f0f0ff] mb-2">Club Registration</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-[#f0f0ff] mb-2">Club Registration</h1>
         </div>
 
         {/* Global Error Banner */}
@@ -218,7 +218,7 @@ export default function RegisterPage() {
             {/* Step 1: Details */}
             {currentStep === 1 && (
               <div className="glass-card p-6 space-y-5 flex-1">
-                <h2 className="text-lg font-semibold text-[#f0f0ff] mb-2">Student Details</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-[#f0f0ff] mb-2">Student Details</h2>
                 <Input
                   label="Full Name"
                   hint="Enter full name with initial."
@@ -263,7 +263,7 @@ export default function RegisterPage() {
             {/* Step 2: Choose Club */}
             {currentStep === 2 && (
               <div className="flex-1 flex flex-col">
-                <h2 className="text-lg font-semibold text-[#f0f0ff] mb-4">Choose Your Club</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-[#f0f0ff] mb-4">Choose Your Club</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {clubs.map((club) => (
                     <ClubCard

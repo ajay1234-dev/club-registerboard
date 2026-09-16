@@ -63,8 +63,8 @@ export default function AdminDashboardPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
-        <div className="flex flex-col items-center gap-4 text-[#a1a1c7]">
-          <span className="w-8 h-8 border-4 border-[#1e1e3f] border-t-cyan-500 rounded-full animate-spin" />
+        <div className="flex flex-col items-center gap-4 text-gray-600 dark:text-[#a1a1c7]">
+          <span className="w-8 h-8 border-4 border-gray-200 dark:border-[#1e1e3f] border-t-cyan-500 rounded-full animate-spin" />
           <p>Loading dashboard...</p>
         </div>
       </div>
@@ -77,16 +77,16 @@ export default function AdminDashboardPage() {
   const percentFilled = expected > 0 ? Math.round((totalRegistrations / expected) * 100) : 0;
 
   return (
-    <main className="min-h-screen bg-[#07070f] p-4 sm:p-6 lg:p-8 flex flex-col gap-6 max-w-[1920px] mx-auto">
+    <main className="min-h-screen bg-white dark:bg-[#07070f] p-4 sm:p-6 lg:p-8 flex flex-col gap-6 max-w-[1920px] mx-auto">
       
       {/* Header */}
       <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 glass-card p-4 sm:px-6">
         <div>
-          <h1 className="text-xl font-bold text-[#f0f0ff] flex items-center gap-2">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-[#f0f0ff] flex items-center gap-2">
             <Settings className="w-5 h-5 text-cyan-400" />
             Admin Dashboard
           </h1>
-          <p className="text-sm text-[#a1a1c7]">{settings?.eventName || "Freshers Day Event"}</p>
+          <p className="text-sm text-gray-600 dark:text-[#a1a1c7]">{settings?.eventName || "Freshers Day Event"}</p>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto flex-wrap justify-end">
            <Button variant="secondary" size="sm" onClick={handleSync}>

@@ -99,17 +99,17 @@ export default function DepartmentSectionManager({ departments, sections, onUpda
 
   return (
     <div className="glass-card flex flex-col h-[500px]">
-      <div className="p-4 border-b border-[#1e1e3f] flex items-center justify-between">
+      <div className="p-4 border-b border-gray-200 dark:border-[#1e1e3f] flex items-center justify-between">
         <div className="flex gap-4">
           <button
             onClick={() => setActiveTab("departments")}
-            className={`text-sm font-semibold transition-colors ${activeTab === "departments" ? "text-violet-400" : "text-[#6b7280] hover:text-[#a1a1c7]"}`}
+            className={`text-sm font-semibold transition-colors ${activeTab === "departments" ? "text-violet-400" : "text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
           >
             Departments
           </button>
           <button
             onClick={() => setActiveTab("sections")}
-            className={`text-sm font-semibold transition-colors ${activeTab === "sections" ? "text-violet-400" : "text-[#6b7280] hover:text-[#a1a1c7]"}`}
+            className={`text-sm font-semibold transition-colors ${activeTab === "sections" ? "text-violet-400" : "text-[#6b7280] hover:text-gray-600 dark:text-[#a1a1c7]"}`}
           >
             Sections
           </button>
@@ -125,14 +125,14 @@ export default function DepartmentSectionManager({ departments, sections, onUpda
           <p className="text-center text-[#6b7280] py-8 text-sm">No items found</p>
         ) : (
           currentList.map((item) => (
-            <div key={item.id} className={`flex items-center justify-between p-3 rounded-lg border ${item.active ? "bg-white/[0.02] border-[#1e1e3f]" : "bg-black/20 border-red-500/20 opacity-75"}`}>
+            <div key={item.id} className={`flex items-center justify-between p-3 rounded-lg border ${item.active ? "bg-white/[0.02] border-gray-200 dark:border-[#1e1e3f]" : "bg-black/20 border-red-500/20 opacity-75"}`}>
               <div className="flex items-center gap-2">
-                <span className="font-medium text-[#f0f0ff]">{item.name}</span>
+                <span className="font-medium text-gray-900 dark:text-[#f0f0ff]">{item.name}</span>
                 {!item.active && <span className="text-[10px] uppercase font-bold text-red-400 bg-red-400/10 px-2 py-0.5 rounded">Inactive</span>}
               </div>
               <div className="flex items-center gap-1">
                 <Button variant="ghost" size="sm" onClick={() => openEdit(item)} className="px-2">
-                  <Edit2 className="w-4 h-4 text-[#a1a1c7]" />
+                  <Edit2 className="w-4 h-4 text-gray-600 dark:text-[#a1a1c7]" />
                 </Button>
                 <Button variant="ghost" size="sm" onClick={() => toggleActive(item.id, item.active)} className="px-2">
                   <Power className={`w-4 h-4 ${item.active ? "text-red-400" : "text-green-400"}`} />

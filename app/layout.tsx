@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,6 +9,13 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="bg-[#07070f] text-[#f0f0ff] font-sans antialiased min-h-screen">
-        {children}
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+      <body className="bg-white dark:bg-white dark:bg-[#07070f] text-gray-900 dark:text-gray-900 dark:text-[#f0f0ff] font-sans antialiased min-h-screen transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+          <ThemeToggle />
+        </ThemeProvider>
       </body>
     </html>
   );

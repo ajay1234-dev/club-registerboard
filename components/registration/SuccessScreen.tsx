@@ -47,10 +47,10 @@ export default function SuccessScreen({
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <h1 className="text-2xl font-bold text-[#f0f0ff] mb-2">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-[#f0f0ff] mb-2">
             You&apos;re in, {studentName.split(" ")[0]}! 🎉
           </h1>
-          <p className="text-[#a1a1c7] text-sm">
+          <p className="text-gray-600 dark:text-[#a1a1c7] text-sm">
             Registration confirmed. Welcome to
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function SuccessScreen({
           className="glass-card border border-violet-500/30 p-6 mb-8 glow-violet"
         >
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-[#14142a] flex items-center justify-center">
+            <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-white dark:bg-[#14142a] flex items-center justify-center">
               {clubLogoUrl ? (
                 <Image
                   src={clubLogoUrl}

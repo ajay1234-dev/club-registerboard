@@ -45,7 +45,7 @@ export default function ErrorScreen({
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <h1 className="text-2xl font-bold text-[#f0f0ff] mb-2">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-[#f0f0ff] mb-2">
             Registration Blocked 🛑
           </h1>
         </motion.div>
@@ -57,7 +57,7 @@ export default function ErrorScreen({
           transition={{ delay: 0.5 }}
           className="glass-card border border-red-500/30 p-6 mb-8 shadow-[0_0_20px_rgba(239,68,68,0.1)]"
         >
-          <p className="text-[#f0f0ff] font-medium text-lg leading-relaxed">
+          <p className="text-gray-900 dark:text-[#f0f0ff] font-medium text-lg leading-relaxed">
             {message}
           </p>
         </motion.div>

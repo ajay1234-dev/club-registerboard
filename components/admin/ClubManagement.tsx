@@ -145,8 +145,8 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
 
   return (
     <div className="glass-card flex flex-col h-full">
-      <div className="p-4 border-b border-[#1e1e3f] flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-[#f0f0ff]">Clubs</h2>
+      <div className="p-4 border-b border-gray-200 dark:border-[#1e1e3f] flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-[#f0f0ff]">Clubs</h2>
         <Button variant="primary" size="sm" onClick={openNew}>
           <Plus className="w-4 h-4" />
           Add Club
@@ -158,7 +158,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
           <div
             key={club.id}
             className={`p-3 rounded-xl border flex items-center gap-4 transition-colors ${
-              club.active ? "bg-white/[0.02] border-[#1e1e3f]" : "bg-black/20 border-red-500/20 opacity-75"
+              club.active ? "bg-white/[0.02] border-gray-200 dark:border-[#1e1e3f]" : "bg-black/20 border-red-500/20 opacity-75"
             }`}
           >
             {/* Logo */}
@@ -166,14 +166,14 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
               {club.logoUrl ? (
                 <img src={club.logoUrl} alt={club.name} className="object-contain p-0.5 w-full h-full" />
               ) : (
-                <span className="text-lg font-bold text-[#a1a1c7]">{club.name.charAt(0)}</span>
+                <span className="text-lg font-bold text-gray-600 dark:text-[#a1a1c7]">{club.name.charAt(0)}</span>
               )}
             </div>
 
             {/* Info */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <h3 className="font-semibold text-[#f0f0ff] truncate">{club.name}</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-[#f0f0ff] truncate">{club.name}</h3>
                 {!club.active && (
                   <span className="text-[10px] uppercase font-bold text-red-400 bg-red-400/10 px-2 py-0.5 rounded">Inactive</span>
                 )}
@@ -187,7 +187,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
                 <BarChart2 className="w-4 h-4" />
               </Button>
               <Button variant="ghost" size="sm" onClick={() => openEdit(club)} className="px-2">
-                <Edit2 className="w-4 h-4 text-[#a1a1c7]" />
+                <Edit2 className="w-4 h-4 text-gray-600 dark:text-[#a1a1c7]" />
               </Button>
               <Button variant="ghost" size="sm" onClick={() => toggleActive(club)} className="px-2">
                 <Power className={`w-4 h-4 ${club.active ? "text-red-400" : "text-green-400"}`} />
@@ -205,7 +205,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
           <Input label="Name" value={name} onChange={(e) => setName(e.target.value)} required disabled={isSubmitting} />
           
           <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-[#a1a1c7]">Description</label>
+            <label className="block text-sm font-medium text-gray-600 dark:text-[#a1a1c7]">Description</label>
             <textarea
               className="input-field px-4 py-3 min-h-[100px] resize-none"
               value={description}
@@ -217,7 +217,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
           <Input label="Display Order" type="number" min="0" value={displayOrder} onChange={(e) => setDisplayOrder(e.target.value)} required disabled={isSubmitting} />
 
           <div className="space-y-1.5">
-            <label className="block text-sm font-medium text-[#a1a1c7]">Logo</label>
+            <label className="block text-sm font-medium text-gray-600 dark:text-[#a1a1c7]">Logo</label>
             <div className="flex items-center gap-4">
                {/* Current logo preview if exists and no new file selected */}
                {editingClub?.logoUrl && !logoFile && (
@@ -230,7 +230,7 @@ export default function ClubManagement({ clubs, onUpdate }: ClubManagementProps)
                 accept="image/png, image/jpeg, image/webp"
                 onChange={(e) => setLogoFile(e.target.files?.[0] || null)}
                 disabled={isSubmitting}
-                className="text-sm text-[#a1a1c7] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white/5 file:text-[#f0f0ff] hover:file:bg-white/10 file:cursor-pointer"
+                className="text-sm text-gray-600 dark:text-[#a1a1c7] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white/5 file:text-gray-900 dark:text-[#f0f0ff] hover:file:bg-white/10 file:cursor-pointer"
               />
             </div>
           </div>

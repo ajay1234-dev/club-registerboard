@@ -20,7 +20,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-[#a1a1c7]"
+            className="block text-sm font-medium text-gray-600 dark:text-[#a1a1c7]"
           >
             {label}
             {props.required && (
@@ -49,7 +49,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
               <option
                 key={opt.value}
                 value={opt.value}
-                className="bg-[#0f0f1e] text-[#f0f0ff]"
+                className="bg-gray-100 dark:bg-[#0f0f1e] text-gray-900 dark:text-[#f0f0ff]"
               >
                 {opt.label}
               </option>

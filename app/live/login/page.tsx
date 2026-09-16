@@ -70,17 +70,17 @@ export default function LiveLoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center p-6 relative">
       {/* Background */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#07070f]">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-white dark:bg-[#07070f]">
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-violet-600/5 blur-[120px]" />
       </div>
 
       <div className="relative z-10 w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-6 h-6 text-[#a1a1c7]" />
+            <Lock className="w-6 h-6 text-gray-600 dark:text-[#a1a1c7]" />
           </div>
-          <h1 className="text-2xl font-bold text-[#f0f0ff] mb-2">Organizer Login</h1>
-          <p className="text-[#a1a1c7] text-sm">Access the live dashboard</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-[#f0f0ff] mb-2">Organizer Login</h1>
+          <p className="text-gray-600 dark:text-[#a1a1c7] text-sm">Access the live dashboard</p>
         </div>
 
         <div className="glass-card p-6">

@@ -68,8 +68,8 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
 
   return (
     <div className="glass-card flex flex-col h-full overflow-hidden">
-      <div className="p-4 border-b border-[#1e1e3f] flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-lg font-semibold text-[#f0f0ff]">Registrations ({total})</h2>
+      <div className="p-4 border-b border-gray-200 dark:border-[#1e1e3f] flex flex-wrap items-center justify-between gap-4">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-[#f0f0ff]">Registrations ({total})</h2>
         <Button variant="secondary" size="sm" onClick={handleExport}>
           <Download className="w-4 h-4" />
           Export CSV
@@ -77,7 +77,7 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
       </div>
 
       {/* Filters */}
-      <div className="p-4 border-b border-[#1e1e3f] bg-black/20 flex flex-wrap gap-3">
+      <div className="p-4 border-b border-gray-200 dark:border-[#1e1e3f] bg-black/20 flex flex-wrap gap-3">
         <div className="flex-1 min-w-[200px]">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6b7280]" />
@@ -119,7 +119,7 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
       {/* Table */}
       <div className="flex-1 overflow-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
-          <thead className="sticky top-0 bg-[#0f0f1e] text-[#a1a1c7] z-10 shadow-sm border-b border-[#1e1e3f]">
+          <thead className="sticky top-0 bg-gray-100 dark:bg-[#0f0f1e] text-gray-600 dark:text-[#a1a1c7] z-10 shadow-sm border-b border-gray-200 dark:border-[#1e1e3f]">
             <tr>
               <th className="px-6 py-3 font-medium">Name</th>
               <th className="px-6 py-3 font-medium">Email</th>
@@ -144,9 +144,9 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
             ) : (
               registrations.map((reg) => (
                 <tr key={reg.id} className="hover:bg-white/[0.02] transition-colors">
-                  <td className="px-6 py-3 font-medium text-[#f0f0ff]">{reg.name}</td>
-                  <td className="px-6 py-3 text-[#a1a1c7]">{reg.email}</td>
-                  <td className="px-6 py-3 text-[#a1a1c7]">{reg.department} - {reg.section}</td>
+                  <td className="px-6 py-3 font-medium text-gray-900 dark:text-[#f0f0ff]">{reg.name}</td>
+                  <td className="px-6 py-3 text-gray-600 dark:text-[#a1a1c7]">{reg.email}</td>
+                  <td className="px-6 py-3 text-gray-600 dark:text-[#a1a1c7]">{reg.department} - {reg.section}</td>
                   <td className="px-6 py-3">
                     <span className="px-2 py-1 bg-violet-500/10 text-violet-400 rounded-md text-xs font-medium border border-violet-500/20">
                       {reg.clubName}
@@ -161,7 +161,7 @@ export default function RegistrationsTable({ clubs, departments, sections }: Reg
       </div>
 
       {/* Pagination */}
-      <div className="p-4 border-t border-[#1e1e3f] flex items-center justify-between text-sm text-[#a1a1c7]">
+      <div className="p-4 border-t border-gray-200 dark:border-[#1e1e3f] flex items-center justify-between text-sm text-gray-600 dark:text-[#a1a1c7]">
         <div>
           Showing {registrations.length > 0 ? (page - 1) * 50 + 1 : 0} to{" "}
           {Math.min(page * 50, total)} of {total}

@@ -41,7 +41,7 @@ export default function StepIndicator({ currentStep, steps }: StepIndicatorProps
               <span
                 className={cn(
                   "text-xs font-medium whitespace-nowrap",
-                  isActive ? "text-violet-400" : isComplete ? "text-[#a1a1c7]" : "text-[#4b5563]"
+                  isActive ? "text-violet-400" : isComplete ? "text-gray-600 dark:text-[#a1a1c7]" : "text-[#4b5563]"
                 )}
               >
                 {step}

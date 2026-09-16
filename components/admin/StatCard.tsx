@@ -19,12 +19,12 @@ export default function StatCard({ title, value, icon, trend, className }: StatC
   return (
     <div className={cn("glass-card p-5 flex flex-col", className)}>
       <div className="flex items-start justify-between mb-2">
-        <h3 className="text-sm font-medium text-[#a1a1c7]">{title}</h3>
+        <h3 className="text-sm font-medium text-gray-600 dark:text-[#a1a1c7]">{title}</h3>
         {icon && <div className="text-[#6b7280]">{icon}</div>}
       </div>
       
       <div className="flex items-baseline gap-2 mt-auto">
-        <span className="text-3xl font-bold text-[#f0f0ff]">
+        <span className="text-3xl font-bold text-gray-900 dark:text-[#f0f0ff]">
           {typeof value === "number" ? value.toLocaleString("en-IN") : value}
         </span>
       </div>

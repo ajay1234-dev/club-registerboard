@@ -42,8 +42,8 @@ export default function ConfirmationModal({
 
         {/* Selected club */}
         {selectedClub && (
-          <div className="rounded-xl bg-[#14142a] border border-violet-500/30 p-4 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-[#07070f] flex items-center justify-center">
+          <div className="rounded-xl bg-white dark:bg-[#14142a] border border-violet-500/30 p-4 flex items-center gap-4">
+            <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-white dark:bg-[#07070f] flex items-center justify-center">
               {selectedClub.logoUrl ? (
                 <Image
                   src={selectedClub.logoUrl}
@@ -62,7 +62,7 @@ export default function ConfirmationModal({
               <p className="text-xs text-[#6b7280] font-medium uppercase tracking-wider mb-1">
                 Selected Club
               </p>
-              <p className="text-[#f0f0ff] font-semibold text-lg">
+              <p className="text-gray-900 dark:text-[#f0f0ff] font-semibold text-lg">
                 {selectedClub.name}
               </p>
             </div>
@@ -111,9 +111,9 @@ export default function ConfirmationModal({
 
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-[#1e1e3f] last:border-none">
+    <div className="flex items-center justify-between py-2 border-b border-gray-200 dark:border-[#1e1e3f] last:border-none">
       <span className="text-sm text-[#6b7280]">{label}</span>
-      <span className="text-sm font-medium text-[#f0f0ff]">{value}</span>
+      <span className="text-sm font-medium text-gray-900 dark:text-[#f0f0ff]">{value}</span>
     </div>
   );
 }

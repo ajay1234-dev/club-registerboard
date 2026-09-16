@@ -64,14 +64,14 @@ export default function EventControls({ registrationOpen, onUpdate }: EventContr
   return (
     <div className="glass-card p-5 space-y-6">
       <div>
-        <h2 className="text-lg font-semibold text-[#f0f0ff] mb-1">Event Controls</h2>
-        <p className="text-sm text-[#a1a1c7]">Manage global event state</p>
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-[#f0f0ff] mb-1">Event Controls</h2>
+        <p className="text-sm text-gray-600 dark:text-[#a1a1c7]">Manage global event state</p>
       </div>
 
       {/* Registration Toggle */}
-      <div className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-[#1e1e3f]">
+      <div className="flex items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-gray-200 dark:border-[#1e1e3f]">
         <div>
-          <p className="font-semibold text-[#f0f0ff]">Registration Status</p>
+          <p className="font-semibold text-gray-900 dark:text-[#f0f0ff]">Registration Status</p>
           <p className="text-sm text-[#6b7280]">
             Currently <span className={registrationOpen ? "text-green-400 font-bold" : "text-red-400 font-bold"}>{registrationOpen ? "OPEN" : "CLOSED"}</span>
           </p>

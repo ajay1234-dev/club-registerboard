@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase/client";
 
@@ -56,16 +57,28 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
         <span>Meenakshi Sundararajan Engineering College</span>
         <span className="text-xs text-gray-500 mt-1">An Autonomous Institution</span>
       </div>
-      <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-50 leading-tight tracking-tight mb-4 mt-4">
+      <motion.h1 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="font-outfit text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-50 leading-tight tracking-tight mb-4 mt-4"
+      >
         {status.eventName.startsWith("First Year") ? (
           <>
-            <span className="rainbow-text">First Year</span>{" "}
+            <motion.span 
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ delay: 0.3, duration: 1 }}
+              className="rainbow-text"
+            >
+              First Year
+            </motion.span>{" "}
             {status.eventName.slice(11)}
           </>
         ) : (
           status.eventName
         )}
-      </h1>
+      </motion.h1>
 
       <p className="text-lg sm:text-xl text-gray-400 max-w-lg mb-4">
         Pick your tribe. Find your people. Join a club that matches your passion.

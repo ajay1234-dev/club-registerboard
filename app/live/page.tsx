@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { useLeaderboard } from "@/services/leaderboard/useLeaderboard";
 import LeaderboardCard from "@/components/leaderboard/LeaderboardCard";
 import LivePulse from "@/components/leaderboard/LivePulse";
 import { formatPercent } from "@/lib/utils/helpers";
 import { LayoutGroup } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
 
 export default function LiveLeaderboardPage() {
   const { state, isLoading, error } = useLeaderboard();
-  const [isLight, setIsLight] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLight = mounted && resolvedTheme === "light";
 
   if (isLoading) {
     return (
@@ -59,25 +66,18 @@ export default function LiveLeaderboardPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
                 Club Spotlight
               </h1>
-              <button
-                onClick={() => setIsLight(!isLight)}
-                className={`p-2 rounded-lg transition-colors ${isLight ? "hover:bg-gray-200 text-gray-700" : "hover:bg-gray-800 text-gray-300"}`}
-                aria-label="Toggle theme"
-              >
-                {isLight ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
-              </button>
             </div>
           </div>
 
           <div className="text-left md:text-right">
             <p className={`text-sm font-medium uppercase tracking-widest mb-1 ${isLight ? "text-gray-500" : "text-gray-400"}`}>
-              Total Registered
+              Total
             </p>
             <div className="flex items-baseline justify-start md:justify-end gap-2">
-              <span className="text-4xl sm:text-5xl font-black tabular-nums">
+              <span className="text-6xl sm:text-7xl font-black tabular-nums">
                 {totalRegistrations.toLocaleString("en-IN")}
               </span>
-              <span className={`text-xl font-medium ${isLight ? "text-gray-500" : "text-gray-400"}`}>
+              <span className={`text-3xl font-bold ${isLight ? "text-gray-500" : "text-gray-400"}`}>
                 / {totalExpected.toLocaleString("en-IN")}
               </span>
             </div>
@@ -94,10 +94,10 @@ export default function LiveLeaderboardPage() {
         <div className="flex-1 flex flex-col min-h-0 w-full max-w-[90%] 2xl:max-w-screen-2xl mx-auto mt-4">
           {/* Table Header */}
           <div className={`flex items-center gap-6 px-6 py-4 border-b-2 text-sm md:text-base font-bold uppercase tracking-widest ${isLight ? "border-gray-300 text-gray-500" : "border-gray-700 text-gray-400"}`}>
-            <div className="w-12 text-center">#</div>
+            <div className="w-16 text-center">Rank</div>
             <div className="w-16"></div> {/* Logo spacer */}
-            <div className="flex-1">Club Name</div>
-            <div className="text-right">Reg Members</div>
+            <div className="flex-1">Club</div>
+            <div className="text-right">Registrations</div>
           </div>
           
           {/* Table Body */}

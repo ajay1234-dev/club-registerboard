@@ -33,6 +33,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        outfit: ["var(--font-outfit)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         "accent-gradient": "linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%)",
