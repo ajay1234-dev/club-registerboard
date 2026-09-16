@@ -47,6 +47,19 @@ export default function AdminDashboardPage() {
     router.push("/admin/login");
   };
 
+  const handleSync = async () => {
+    if (!confirm("Are you sure you want to recalculate all counters? Use this only if data is out of sync.")) return;
+    setIsLoading(true);
+    try {
+      await fetch("/api/admin/sync", { method: "POST" });
+      await loadData();
+    } catch (err) {
+      console.error("Failed to sync", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
@@ -75,7 +88,10 @@ export default function AdminDashboardPage() {
           </h1>
           <p className="text-sm text-[#a1a1c7]">{settings?.eventName || "Freshers Day Event"}</p>
         </div>
-        <div className="flex items-center gap-3 w-full sm:w-auto">
+        <div className="flex items-center gap-3 w-full sm:w-auto flex-wrap justify-end">
+           <Button variant="secondary" size="sm" onClick={handleSync}>
+            Sync Counters
+          </Button>
            <Button variant="secondary" size="sm" onClick={() => router.push("/live")}>
             View Live Leaderboard
           </Button>

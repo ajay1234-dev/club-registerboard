@@ -205,6 +205,7 @@ export default function RegisterPage() {
                 <h2 className="text-lg font-semibold text-[#f0f0ff] mb-2">Student Details</h2>
                 <Input
                   label="Full Name"
+                  hint="Enter full name with initial."
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
@@ -212,7 +213,7 @@ export default function RegisterPage() {
                 <Input
                   type="email"
                   label="Email Address"
-                  hint="Please use your college email if possible."
+                  hint="Please use your Personal Email."
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
