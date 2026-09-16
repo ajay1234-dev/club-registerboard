@@ -14,7 +14,8 @@ interface LeaderboardCardProps {
 export default function LeaderboardCard({
   entry,
 }: LeaderboardCardProps) {
-  const isTopThree = entry.rank <= 3;
+  const hasRegistrations = entry.registrationCount > 0;
+  const isTopThree = hasRegistrations && entry.rank <= 3;
 
   return (
     <motion.div
@@ -31,9 +32,9 @@ export default function LeaderboardCard({
       {/* Rank */}
       <div className={cn(
         "w-16 flex-shrink-0 text-center font-bold text-2xl",
-        isTopThree ? "text-indigo-500 dark:text-indigo-400" : "text-gray-500 dark:text-gray-500"
+        isTopThree ? "text-indigo-500 dark:text-indigo-400" : "text-gray-400 dark:text-gray-500"
       )}>
-        {entry.rank}
+        {hasRegistrations ? entry.rank : "-"}
       </div>
 
       {/* Logo */}
