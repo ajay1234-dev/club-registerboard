@@ -193,7 +193,6 @@ export default function RegisterPage() {
       <div className="w-full max-w-2xl mx-auto flex-1 flex flex-col">
         {/* Header */}
         <div className="text-center mb-8 flex flex-col items-center">
-          <img src="/msiic-logo.jpg" alt="Msiic Logo" className="h-14 w-auto object-contain bg-white rounded-lg p-1.5 mb-3 shadow-lg shadow-black/50" />
           <h1 className="text-2xl font-bold text-[#f0f0ff] mb-2">Club Registration</h1>
         </div>
 

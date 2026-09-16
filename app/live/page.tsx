@@ -40,8 +40,8 @@ export default function LiveLeaderboardPage() {
   const filledStr = formatPercent(totalRegistrations, totalExpected);
 
   return (
-    <main className={`min-h-screen transition-colors duration-300 ${isLight ? "bg-[#f9fafb] text-[#111827]" : "bg-[#030712] text-[#f9fafb]"} overflow-hidden flex flex-col p-6 sm:p-8 xl:p-12`}>
-      <div className="relative z-10 flex-1 flex flex-col w-full max-w-[1920px] mx-auto gap-8 h-full max-h-screen pb-4">
+    <main className={`min-h-screen transition-colors duration-300 ${isLight ? "bg-[#f9fafb] text-[#111827]" : "bg-[#030712] text-[#f9fafb]"} overflow-hidden flex flex-col p-4 xl:p-6`}>
+      <div className="relative z-10 flex-1 flex flex-col w-full max-w-[1920px] mx-auto gap-4 h-full max-h-screen pb-4">
         
         {/* Header Section */}
         <header className={`flex flex-col md:flex-row md:items-end justify-between gap-6 border-b ${isLight ? "border-gray-200" : "border-gray-800"} pb-6 shrink-0`}>
@@ -49,7 +49,7 @@ export default function LiveLeaderboardPage() {
             <div className="flex items-center gap-4 mb-2">
               <LivePulse />
               <div className="flex items-center gap-2">
-                <img src="/msiic-logo.jpg" alt="Msiic Logo" className="h-8 w-auto object-contain bg-white rounded-md p-1" />
+
                 <span className={`text-sm font-semibold uppercase tracking-widest ${isLight ? "text-gray-600" : "text-gray-400"}`}>
                   {eventName}
                 </span>
@@ -57,7 +57,7 @@ export default function LiveLeaderboardPage() {
             </div>
             <div className="flex items-center gap-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-                Leaderboard
+                Club Spotlight
               </h1>
               <button
                 onClick={() => setIsLight(!isLight)}

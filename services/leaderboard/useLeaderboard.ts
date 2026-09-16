@@ -34,7 +34,7 @@ export function useLeaderboard(): {
     entries: [],
     totalRegistrations: 0,
     totalExpected: 900,
-    eventName: "Msiic Club Registration",
+    eventName: "First Year Club Enrollment",
     registrationOpen: true,
     lastUpdated: null,
   });
@@ -72,7 +72,7 @@ export function useLeaderboard(): {
       entries: sorted,
       totalRegistrations: settings.totalRegistrationCount ?? 0,
       totalExpected: settings.totalExpectedStudents ?? 900,
-      eventName: settings.eventName ?? "Msiic Club Registration",
+      eventName: settings.eventName ?? "First Year Club Enrollment",
       registrationOpen: settings.registrationOpen ?? true,
       lastUpdated: new Date(),
     });

@@ -10,7 +10,7 @@ export async function GET() {
     // Update Event Name
     const settingsRef = db.collection("settings").doc("event");
     await settingsRef.update({
-      eventName: "Msiic Club Registration"
+      eventName: "First Year Club Enrollment"
     });
 
     // Update Club Logos

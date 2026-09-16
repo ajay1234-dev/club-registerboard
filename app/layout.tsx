@@ -11,11 +11,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Msiic Club Registration",
-    template: "%s | Msiic Club Registration",
+    default: "First Year Club Enrollment",
+    template: "%s | First Year Club Enrollment",
   },
   description:
-    "Register for your college club at Msiic Club Registration. Join one of 13 exciting clubs and be part of the action!",
+    "Register for your college club at First Year Club Enrollment. Join one of 13 exciting clubs and be part of the action!",
   robots: { index: false, follow: false }, // Event-only app — no public indexing
 };
 

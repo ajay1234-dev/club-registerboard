@@ -4,8 +4,8 @@ import { Lock, Star } from "lucide-react";
 import LiveHeroWrapper from "@/components/home/LiveHeroWrapper";
 
 export const metadata: Metadata = {
-  title: "Msiic Club Registration",
-  description: "Join one of 13 amazing clubs at Msiic Club Registration. Register now and be part of the excitement!",
+  title: "First Year Club Enrollment",
+  description: "Join one of 13 amazing clubs at First Year Club Enrollment. Register now and be part of the excitement!",
 };
 
 // Revalidate every 30 seconds to keep status fresh
@@ -17,17 +17,17 @@ async function getEventStatus() {
       `https://firestore.googleapis.com/v1/projects/${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}/databases/(default)/documents/settings/event`,
       { next: { revalidate: 30 } }
     );
-    if (!response.ok) return { registrationOpen: true, eventName: "Msiic Club Registration", totalRegistrationCount: 0, totalExpectedStudents: 900 };
+    if (!response.ok) return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 900 };
     const data = await response.json();
     const fields = data.fields ?? {};
     return {
       registrationOpen: fields.registrationOpen?.booleanValue ?? true,
-      eventName: fields.eventName?.stringValue ?? "Msiic Club Registration",
+      eventName: fields.eventName?.stringValue ?? "First Year Club Enrollment",
       totalRegistrationCount: parseInt(fields.totalRegistrationCount?.integerValue ?? "0"),
       totalExpectedStudents: parseInt(fields.totalExpectedStudents?.integerValue ?? "900"),
     };
   } catch {
-    return { registrationOpen: true, eventName: "Msiic Club Registration", totalRegistrationCount: 0, totalExpectedStudents: 900 };
+    return { registrationOpen: true, eventName: "First Year Club Enrollment", totalRegistrationCount: 0, totalExpectedStudents: 900 };
   }
 }
 
@@ -75,8 +75,7 @@ export default async function LandingPage() {
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between px-6 py-4 max-w-5xl mx-auto w-full">
         <div className="flex items-center gap-3 text-sm font-semibold text-gray-400">
-          <img src="/msiic-logo.jpg" alt="Msiic Logo" className="h-10 w-auto object-contain bg-white rounded-md p-1" />
-          <span><span className="rainbow-text">Msiic</span> Club Registration</span>
+          <span><span className="rainbow-text">First Year</span> Club Enrollment</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
           <Link
