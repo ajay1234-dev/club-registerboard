@@ -104,21 +104,44 @@ export default async function LandingPage() {
         <section className="relative z-10 pb-12 px-6">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 dark:text-gray-300 uppercase tracking-wider mb-10">Our Clubs</h2>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-              {clubs.map((club: PageClub, idx: number) => (
-                <div key={idx} className="flex flex-col items-center gap-2 group">
-                  <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-gray-200 dark:border-gray-800 bg-white flex items-center justify-center group-hover:border-indigo-500 group-hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300 relative overflow-hidden">
-                    {club.logoUrl ? (
-                      <img src={club.logoUrl} alt={club.name} className="w-[90%] h-[90%] object-contain rounded-full" />
-                    ) : (
-                      <span className="text-3xl font-bold text-gray-400 group-hover:text-indigo-400 transition-colors">{club.name.charAt(0)}</span>
-                    )}
+            <div className="flex flex-col gap-4 sm:gap-6 items-center w-full">
+              {/* First Row (6 clubs) */}
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 w-full">
+                {clubs.slice(0, 6).map((club: PageClub, idx: number) => (
+                  <div key={idx} className="flex flex-col items-center gap-2 group">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-gray-200 dark:border-gray-800 bg-white flex items-center justify-center group-hover:border-indigo-500 group-hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300 relative overflow-hidden">
+                      {club.logoUrl ? (
+                        <img src={club.logoUrl} alt={club.name} className="w-[90%] h-[90%] object-contain rounded-full" />
+                      ) : (
+                        <span className="text-3xl font-bold text-gray-400 group-hover:text-indigo-400 transition-colors">{club.name.charAt(0)}</span>
+                      )}
+                    </div>
+                    <span className="text-sm text-gray-700 dark:text-gray-500 font-medium w-28 sm:w-32 text-center leading-tight group-hover:text-gray-900 dark:group-hover:text-gray-300 transition-colors" title={club.name}>
+                      {club.name}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray-700 dark:text-gray-500 font-medium w-28 sm:w-32 text-center leading-tight group-hover:text-gray-900 dark:group-hover:text-gray-300 transition-colors" title={club.name}>
-                    {club.name}
-                  </span>
+                ))}
+              </div>
+              
+              {/* Second Row (remaining clubs, e.g. 7) */}
+              {clubs.length > 6 && (
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-6 w-full">
+                  {clubs.slice(6).map((club: PageClub, idx: number) => (
+                    <div key={idx + 6} className="flex flex-col items-center gap-2 group">
+                      <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full border border-gray-200 dark:border-gray-800 bg-white flex items-center justify-center group-hover:border-indigo-500 group-hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300 relative overflow-hidden">
+                        {club.logoUrl ? (
+                          <img src={club.logoUrl} alt={club.name} className="w-[90%] h-[90%] object-contain rounded-full" />
+                        ) : (
+                          <span className="text-3xl font-bold text-gray-400 group-hover:text-indigo-400 transition-colors">{club.name.charAt(0)}</span>
+                        )}
+                      </div>
+                      <span className="text-sm text-gray-700 dark:text-gray-500 font-medium w-28 sm:w-32 text-center leading-tight group-hover:text-gray-900 dark:group-hover:text-gray-300 transition-colors" title={club.name}>
+                        {club.name}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </section>
