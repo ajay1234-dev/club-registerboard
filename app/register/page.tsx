@@ -139,6 +139,7 @@ export default function RegisterPage() {
       // We don't need to redirect, we render the success screen component
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred. Please try again.");
+      setCurrentStep(2); // Close the modal so the user can see the error message
     } finally {
       setIsSubmitting(false);
     }
