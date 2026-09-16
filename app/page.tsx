@@ -102,7 +102,7 @@ export default async function LandingPage() {
       {/* Participating Clubs / Logos */}
       {clubs.length > 0 && (
         <section className="relative z-10 pb-12 px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <p className="text-xs font-bold text-gray-500 dark:text-gray-600 uppercase tracking-widest mb-8">Participating Clubs</p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               {clubs.map((club: PageClub, idx: number) => (

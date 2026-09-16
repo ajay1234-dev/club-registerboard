@@ -55,7 +55,7 @@ export default function LiveHero({ initialStatus }: LiveHeroProps) {
       {/* Headline */}
       <div className="mb-2 text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-widest text-center flex flex-col items-center">
         <span>Meenakshi Sundararajan Engineering College</span>
-        <span className="text-xs text-gray-500 mt-1">An Autonomous Institution (chennai)</span>
+        <span className="text-xs text-gray-500 mt-1">(An Autonomous Institution),Chennai - 24</span>
       </div>
       <motion.h1 
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
