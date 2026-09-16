@@ -23,8 +23,8 @@ export default function ClubCard({ club, isSelected, onSelect }: ClubCardProps) 
       className={cn(
         "relative w-full text-left glass-card border transition-all duration-200 p-4 cursor-pointer group",
         isSelected
-          ? "club-card-selected border-indigo-500"
-          : "border-gray-800 hover:border-gray-600 hover:bg-white/5"
+          ? "club-card-selected border-indigo-500 bg-indigo-50/50 dark:bg-transparent"
+          : "border-gray-200 hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800 dark:hover:border-gray-600 dark:hover:bg-white/5"
       )}
       role="radio"
       aria-checked={isSelected}
@@ -45,8 +45,8 @@ export default function ClubCard({ club, isSelected, onSelect }: ClubCardProps) 
       <div className="flex flex-col items-center text-center gap-3">
         {/* Club logo */}
         <div className={cn(
-          "w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center bg-white flex-shrink-0 transition-all duration-200 border border-gray-800",
-          isSelected && "ring-2 ring-indigo-500 border-indigo-500"
+          "w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center bg-white flex-shrink-0 transition-all duration-200 border border-gray-200 dark:border-gray-800",
+          isSelected && "ring-2 ring-indigo-500 border-indigo-500 dark:border-indigo-500"
         )}>
           {club.logoUrl ? (
             <div className="w-full h-full flex items-center justify-center">
@@ -68,7 +68,7 @@ export default function ClubCard({ club, isSelected, onSelect }: ClubCardProps) 
         {/* Club name */}
         <span className={cn(
           "font-semibold text-sm leading-tight transition-colors",
-          isSelected ? "text-gray-50" : "text-gray-400 group-hover:text-gray-200"
+          isSelected ? "text-indigo-900 dark:text-gray-50" : "text-gray-700 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-200"
         )}>
           {club.name}
         </span>
